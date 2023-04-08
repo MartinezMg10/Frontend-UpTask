@@ -20,13 +20,34 @@ const handleSubmit = e => {
       })
       return
   }
+
+  if(password !== repetirPassword){
+    setAlerta({
+      msg:"Los password no son iguales",
+      error:true
+    })
+    return
+}
+
+if(password.length < 6){
+  setAlerta({
+    msg:"El Password es muy corto, agrega minimo 6 caracteres",
+    error:true
+  })
+  return
+}
+
+setAlerta = ({})
+
+//creando el usuario en la Api
+
 }
 const { msg } = alerta
 
   return (
     <>
     <h1 className="text-sky-600 font-black text-6xl capitalize">Crea tu cuenta y administra tus <span className="text-slate-700">proyectos</span></h1>
-    
+
     {msg && <Alerta alerta={alerta} />}
 
     <form className="my-10 bg-white shadow rounded-lg p-10"
